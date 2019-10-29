@@ -1,5 +1,6 @@
 package com.linda.guess;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         number = findViewById( R.id.ed_num);
 
+        //AlertDialog.
 
 
         Log.d(TAG,"Secret : "+ secret);
@@ -42,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+//                int secret = new Random().nextInt(10) +1;
+                guessTime = 0;
+                TextView inform = findViewById(R.id.inform);
+                TextView times = findViewById(R.id.times);
+                inform.setText("");
+                times.setText("");
+                number.setText(String.valueOf(guessTime));
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
             }
@@ -68,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             //Toast.makeText(MainActivity.this,"You Got It ! The number is :" + secret,Toast.LENGTH_LONG).show();
 
         }
-        times.setText("猜了" + guessTime +"次");
+        times.setText("Guess" +  guessTime  +"time(s)");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
